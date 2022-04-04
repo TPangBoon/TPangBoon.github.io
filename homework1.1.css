@@ -1,0 +1,109 @@
+header{
+  background: linear-gradient(to bottom, #0066ff 0%, rgb(209, 242, 255) 100%);
+  padding: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+img{
+  text-align: center;
+}
+
+body {
+  background-color: rgb(209, 242, 255);
+  font-family:Lucida Console;
+}
+
+
+.addBoarder{
+  border: 1px solid rgb(198, 198, 198);
+  background-color: Azure;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px ;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.alignRight{
+  float: right;
+  margin-right: 20pt;
+}
+
+hr{
+  border-top: 1px solid red;  
+}
+
+hr.solid {
+  border-top: 3px solid red;  /* <hr class="solid"> */
+}
+
+hr.dashed {
+  border-top: 3px dashed rgb(214, 214, 214); /* <hr class="dashed"> */
+}
+
+
+
+.heading {
+  text-align: center;
+  color: cornflowerblue;
+  font-family:Copperplate;
+  font-weight: bold;
+  text-decoration:underline;
+}
+
+.text1{
+  font-size: 16px;
+  font-family:Georgia;
+  color: black;
+}
+
+.text2{
+  text-align: center;
+  color: yellow;
+  font-family: courier;
+}
+
+
+.text3{
+  box-sizing: border-box;
+  width: 500px;
+  height: 100px;
+  padding: 30px;
+  border: 5px solid blue;
+}
+
+
+#thistag{
+  font-size: 50px;
+}
+
+
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: Azure;
+  margin: 5px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.flex-child {
+  flex: 1;
+}  
+
+.flex-child:first-child {
+  margin-right: 10px;
+} 
+
+.FlexForContent {
+  flex-grow: 3; /* default 0 */
+}
+
+.FlexForContent2 {
+  flex-grow: 1.5; /* default 0 */
+}

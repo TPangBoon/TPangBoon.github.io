@@ -1,0 +1,18 @@
+body {
+background-color: grey;
+text-align: center;
+font-family: "Arial Black", Helvetica, sans-serif;
+}
+
+
+.test {
+color: yellow;
+}
+
+.test2{
+font-size: 20px;
+}
+
+#thistag{
+font-size: 50px;
+}
