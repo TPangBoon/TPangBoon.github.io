@@ -1,45 +1,36 @@
-header{ /*   */
-  background: linear-gradient(to bottom, #408cff 0%, rgb(209, 242, 255) 100%);
-  padding: 50px;
+
+div{
   text-align: center;
-  font-size: 20px;
-  color: rgb(0, 0, 0);
+  font-size: 30px;
+  width:100%;
+  height: 390px;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
+  display: none;
 }
 
-h3{
-  color: cornflowerblue;
-  line-height: 50%;
-  font-size: 20px;
+h1{
+  font-weight: bold;
+
 }
-
-
+  
 img{ 
   text-align: center;
 }
 
 body {
-  background-color: rgb(209, 242, 255);
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
   font-family:Lucida Console;
   text-align: left;
 }
 
-div{
-  background-color: rgb(209, 242, 255);
+
+
+
+.timeclass{
+  font-size: 45px;
 }
-
-
-hr{border-top: 1px solid red;}
-hr.solid {border-top: 3px solid red;}/* <hr class="solid"> */
-hr.dashed {border-top: 3px dashed rgb(214, 214, 214);} /* <hr class="dashed"> */
-
-div.ex1 {   /*   */
-  background-color: transparent;
-  width: 350px;
-  height: 250px;
-  overflow: auto;
-}
-
-
+  
+  
 .floatleft{
   float: left;
   display: block;
@@ -62,21 +53,8 @@ div.ex1 {   /*   */
 }
 
 
-.addBoarder{
-  border: 1px solid rgb(198, 198, 198);
-  background-color: Azure;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  margin-top: 1px;
-  margin-bottom: 1px ;
-  margin-left: 150px;
-  margin-right: 150px;
-}
 
-.alignRight{
-  float: right;
-  margin-right: 20pt;
-}
+
 
 .heading {
   text-align: center;
@@ -87,41 +65,6 @@ div.ex1 {   /*   */
   font-size: 30px;
 }
 
-.text1{
-  font-size: 15px;
-  font-family:Georgia;
-  color: black;
-}
-
-
-
-#thistag{
-  font-size: 50px;
-}
-
-
-
-.flex-container {
-  display: flex; /* display items in horizontal instead of vertical */ 
-}
-
-.flex-container > div {
-  margin: 5px;
-  padding: 10px;
-  font-size: 20px;
-}
-
-.flex-child { /*Allow child to sketch across the parents*/ 
-  flex: 1;
-}  
-
-.flex-child:first-child {
-  margin-right: 10px;
-} 
-
-.FlexForContent { 
-  flex-grow: 3; /* default 0, scale the child box */
-}
 
 
 li a:hover {
@@ -194,3 +137,28 @@ li a {
 
 /*change to orange*/
 .material-icons.orange600 { color: #FB8C00; }
+
+
+
+button{
+  background:#007a78;
+  color: white;
+  border: solid 1px white;
+
+  cursor:pointer;
+  padding:18px 10px;
+  width: 160px;
+  height: 80px;
+  margin: 10px;
+  outline: none;
+} 
+
+.circle {
+  background:#007a78;
+  color: white;
+  border: solid 1px white;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%
+}
+  

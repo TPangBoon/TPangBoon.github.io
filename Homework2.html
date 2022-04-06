@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<head>
+<title>GameGameHW2</title>
+
+<style>
+</style>
+<link rel="stylesheet" href ="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" href = "Homework2.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body onload="startTime()">
+    <ul class="HoriList">
+        <li class="floatleft" style= "padding: 14px;"> <img src="WMenu.png" width="30" height="30"></li>
+        <li class="floatleft" style= "padding: 14px; font-size:20px;"> My Clock </li>
+        <li class="floatright"> <a href="#about">Contact me</a></li>
+        <li class="floatright" > <a href="#about" >Home</a> </li>
+    </ul>
+
+    
+    <div id="clockSection" style="display: block;">
+        <h1> My Clock</h1>
+        <p class="timeclass" id="clock"> test</p>
+    </div>
+
+    <div id="stopWatchSection"> 
+        <h1> Stopwatch</h1>
+        <p class="timeclass" id="timeT"> 00 : 00</p>
+        <br>
+        <br>
+        <button class="circle" id="startT">Start</button>
+        <button class="circle" id="stopT"> Stop </button>
+        <button class="circle" id="resetT"> Reset </button>
+
+    </div>
+
+    <div id="timerSection">
+        <h1> Timer</h1>
+        <label>Hours:</label> 
+        <label>Mins:</label> 
+        <label>Sec:</label>
+        <br>
+        <input style="width: 70px;" type="number" id="timerH"> &nbsp;
+        <input style="width: 70px;" type="number" id="timerM">&nbsp;
+        <input style="width: 70px;" type="number" id="timerS"><br><br>
+    
+        <button id="timerStartButton" onclick="timerButton()">Start</button>
+        <button onclick="stopTimerButton()">Stop</button>
+        <button onclick="resetTimerButton()">Reset</button>
+        <p class="timeclass" id="timerRemarks"> No Timer have Setted yet</p>
+     
+        <br>
+        <br>
+    </div>
+
+
+
+    <div id="CDSection">
+        <h1> Countdown Days</h1>
+        <input type="date" id="CDDate" > 
+        <button onclick="CDDateButton()">Set</button>
+        <p id="CDDayRemarks"> No Date have Setted yet</p>
+
+    </div>
+
+
+    <p style="background-color: black; text-align: center;">
+        <button style="margin-left: 30px;margin-right: 30px;" onclick="seeClockSection()" ><span class="material-icons md-36">schedule       </span>  Clock</button>
+        <button style="margin-left: 30px;margin-right: 30px;" onclick="seeSWSection()">   <span class="material-icons md-36">alarm          </span>  Stopwatch</button>
+        <button style="margin-left: 30px;margin-right: 30px;" onclick="seeTSection()">    <span class="material-icons md-36">hourglass_top  </span>  Timer</button>
+        <button style="margin-left: 30px;margin-right: 30px;" onclick="seeCDSection()">   <span class="material-icons md-36">event_available</span>  Countday</button>
+    </p>
+
+
+    <br>
+    <br>
+    <br>
+
+
+    <button> Find out More </button>
+
+    <br>
+
+    <h1> FOR ME TO TEST</h1>
+
+    <button  onclick="myAlert()"> Press this for Alert </button>
+
+    <button id="thisbutton" onclick="myfunction()"> Click here to change text </button>
+
+    <button id="test123"> old </button>
+
+ 
+
+
+
+    <script>
+
+        //------------------------------    learning   -------------------------------------
+        var x = "hello";
+        var y = "there";
+        var z =11;
+        var object_dictionary ={x:1 , y:2, z:3}; 
+
+        document.getElementById("test123").innerHTML =  "new"; //this is to change text
+
+        function myfunction(){    
+            document.getElementById("thisbutton").innerHTML = x +y;
+        }
+
+        function myAlert() {
+            var date = new Date();
+            window.alert(object_dictionary.x); //this is to pop out alert
+        }
+
+        //------------------------------    Clock   -------------------------------------
+        function startTime() {
+            var date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            var session = "AM";
+
+            //AM or PM
+            if(h > 12){ 
+                h = h - 12;
+                session = "PM";
+            }
+            // add zero in front of numbers < 10
+            if(m<10) { m = "0" + m;}
+            if(s<10) { s = "0" + s;}
+            if(h<10) { h = "0" + h;}
+
+            document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s + " "+ session;
+            setTimeout(startTime, 1000);
+        }
+
+
+
+        //------------------------------    StopWatch   -------------------------------------
+        var timerM = '00';
+        var timerS = 00;
+        var SWInterval;
+        
+        document.getElementById('startT').onclick = function(){
+            clearInterval(SWInterval);
+            SWInterval = setInterval(timerStarted, 10);
+        }
+        document.getElementById('stopT').onclick = function(){
+            clearInterval(SWInterval);
+        }
+        document.getElementById('resetT').onclick = function(){
+            clearInterval(SWInterval);
+            timerM = '00';
+            timerS = '00';
+            document.getElementById("timeT").innerHTML = timerM + " : " + timerS;
+        }
+
+        function timerStarted(){
+            timerS ++;
+
+            if(timerS == 99) {
+                timerM++;
+                timerS = 00;
+                if(timerM < 10){timerM = "0" + timerM;}
+            }
+            
+            if(timerS < 10){ timerS = "0" + timerS;}
+            document.getElementById("timeT").innerHTML = timerM + " : " + timerS;
+        }
+
+        //------------------------------    CDDay   -------------------------------------
+        var settedCCD
+        function CDDateButton(){
+            settedCCD = document.getElementById("CDDate").value;
+            document.getElementById("CDDayRemarks").innerHTML = settedCCD;
+        }
+        //year     String(settedCCD).substring(0,4)
+        //month     String(settedCCD).substring(5,7) 
+        //day       String(settedCCD).substring(8,10) 
+        // const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+
+        //------------------------------    Timer   -------------------------------------
+        var settedTimerH= 0;
+        var settedTimerM= 0;
+        var settedTimerS= 0;
+        var timerInterval;
+
+        function timerButton(){
+            clearInterval(timerInterval);
+            settedTimerS = document.getElementById("timerS").value;
+            settedTimerM = document.getElementById("timerM").value;
+            settedTimerH = document.getElementById("timerH").value;
+
+            if(settedTimerS>=60 || settedTimerM>=60){
+                document.getElementById("timerRemarks").innerHTML = "Error! Please fill in values below 60";
+                window.alert("Note: fill in values below 60");
+                return;
+            }
+            if(settedTimerS<0 || settedTimerM<0 || settedTimerH<0){
+                document.getElementById("timerRemarks").innerHTML = "Error! Please fill in a positve value";
+                window.alert("Note: Fill in a positve value");
+                return;
+            }
+
+
+            document.getElementById("timerRemarks").innerHTML = settedTimerH+ "hrs "+settedTimerM+ "mins " +settedTimerS +"secs";
+            
+            timerInterval = setInterval(startTimer,1000);
+        }
+
+
+        function stopTimerButton(){
+            clearInterval(timerInterval);
+            document.getElementById("timerRemarks").innerHTML = "Stop";
+            document.getElementById("timerStartButton").innerHTML = "Continue";
+
+            document.getElementById("timerS").value = settedTimerS;
+            document.getElementById("timerM").value = settedTimerM;
+            document.getElementById("timerH").value = settedTimerH;
+
+        }
+
+        function resetTimerButton(){
+            clearInterval(timerInterval);
+            settedTimerH= 0;
+            settedTimerM= 0;
+            settedTimerS= 0;
+            document.getElementById("timerRemarks").innerHTML = "Reset!!";
+            document.getElementById("timerS").value = 0;
+            document.getElementById("timerM").value = 0;
+            document.getElementById("timerH").value = 0;
+
+        }
+
+
+
+        function startTimer(){
+            settedTimerS--;
+
+            if(settedTimerS<=0)
+            {
+                if(settedTimerM<=0)
+                {
+                    if(settedTimerH<=0)
+                    {
+                        document.getElementById("timerRemarks").innerHTML = "Time's Up!!";
+                        window.alert("time's up");
+                        clearInterval(timerInterval);
+                        document.getElementById("timerStartButton").innerHTML = "Start";
+                        return;
+                    }
+                    else
+                    {
+                        settedTimerH--;
+                        settedTimerM=59;
+                    }
+                }
+                else
+                {
+                    settedTimerM--;
+                    settedTimerS=59;
+                }
+            }
+            document.getElementById("timerRemarks").innerHTML = settedTimerH+ "hrs "+settedTimerM+ "mins " +settedTimerS +"secs";
+
+        }
+
+
+
+        function seeClockSection(){
+            document.getElementById("clockSection").style.display = "block";
+            document.getElementById("stopWatchSection").style.display = "none";
+            document.getElementById("timerSection").style.display = "none";
+            document.getElementById("CDSection").style.display = "none";
+            
+        }
+
+        function seeSWSection(){
+            document.getElementById("clockSection").style.display = "none";
+            document.getElementById("stopWatchSection").style.display = "block";
+            document.getElementById("timerSection").style.display = "none";
+            document.getElementById("CDSection").style.display = "none";
+        }
+
+        function seeTSection(){
+            document.getElementById("clockSection").style.display = "none";
+            document.getElementById("stopWatchSection").style.display = "none";
+            document.getElementById("timerSection").style.display = "block";
+            document.getElementById("CDSection").style.display = "none";
+        }
+        function seeCDSection(){
+            document.getElementById("clockSection").style.display = "none";
+            document.getElementById("stopWatchSection").style.display = "none";
+            document.getElementById("timerSection").style.display = "none";
+            document.getElementById("CDSection").style.display = "block";
+        }
+
+    </script>
+
+
+
+
+
+</body>
+</html>
