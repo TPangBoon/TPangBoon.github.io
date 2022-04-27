@@ -88,6 +88,7 @@ li a {
   height: 100px;
   padding: 30px;
   border: 5px solid blue;
+  
 }
 
 
@@ -137,7 +138,7 @@ li a {
 
 /*change to orange*/
 .material-icons.orange600 { color: #FB8C00; }
-
+ 
 
 
 button{

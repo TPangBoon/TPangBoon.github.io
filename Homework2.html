@@ -31,7 +31,6 @@
         <button class="circle" id="startT">Start</button>
         <button class="circle" id="stopT"> Stop </button>
         <button class="circle" id="resetT"> Reset </button>
-
     </div>
 
     <div id="timerSection">
@@ -114,9 +113,9 @@
 
         //------------------------------    Clock   -------------------------------------
         function startTime() {
-            var date = new Date();
-            let h = date.getHours();
-            let m = date.getMinutes();
+            var date = new Date(); //Date() is an object 
+            let h = date.getHours(); //get current hours example 12:20 output is 12
+            let m = date.getMinutes();//get current min example 12:20 output is 20
             let s = date.getSeconds();
             var session = "AM";
 

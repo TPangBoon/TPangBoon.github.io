@@ -97,6 +97,7 @@ div.ex1 {   /*   */
 
 #thistag{
   font-size: 50px;
+  
 }
 
 
@@ -145,8 +146,18 @@ li a {
   height: 100px;
   padding: 30px;
   border: 5px solid blue;
+  stroke: #333333;
+  stroke-width: 10px;
+  
+
 }
 
+.test12345{
+  font: weight 1px;
+  background-image: url("paper.gif");
+  font-style: normal;
+  
+}
 
 
 
